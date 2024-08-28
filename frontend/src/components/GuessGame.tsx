@@ -22,7 +22,9 @@ const GuessGame: React.FC = () => {
       setResult(MESSAGES.GAME_STARTED)
       setInput('')
     } catch (error) {
-      setResult(error.message)
+      if (error instanceof Error) {
+        setResult(error.message)
+      }
     }
   }
 
@@ -39,7 +41,9 @@ const GuessGame: React.FC = () => {
           : `The number is ${data.result}.`,
       )
     } catch (error) {
-      setResult(error.message)
+      if (error instanceof Error) {
+        setResult(error.message)
+      }
     }
   }
 
