@@ -1,26 +1,24 @@
 import TelegramBot from 'node-telegram-bot-api'
-import { MESSAGES } from '../utils/constants'
+import { MESSAGES, TOKEN, WEB_APP_URL } from '../utils/constants'
 
-const token = '7521316894:AAFtKOwJL3srXLK5ZBHs19T53LybWJDrM7I'
-
-if (!token) {
+if (!TOKEN) {
   throw new Error('TELEGRAM_BOT_TOKEN is not set in the environment variables')
 }
 
-const bot = new TelegramBot(token, { polling: true })
+const bot = new TelegramBot(TOKEN, { polling: true })
 
-console.log('Bot is running...')
+const opt = {
+  reply_markup: {
+    inline_keyboard: [
+      [{ text: 'open the game', web_app: { url: WEB_APP_URL } }],
+    ],
+  },
+}
 
 bot.onText(/\/start/, async (msg) => {
   const chatId = msg.chat.id
 
-  await bot.sendMessage(chatId, MESSAGES.GAME_STARTED, {
-    reply_markup: {
-      inline_keyboard: [
-        [{ text: 'open the game', web_app: { url: 'https://localhost:5173' } }],
-      ],
-    },
-  })
+  await bot.sendMessage(chatId, MESSAGES.GAME_STARTED, opt)
 })
 
 export default bot

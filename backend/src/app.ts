@@ -1,14 +1,11 @@
 import express from 'express'
 import cors from 'cors'
-import dotenv from 'dotenv'
 import {
   startGameController,
   guessController,
 } from './controllers/gameController'
 import { errorHandler } from './middlewares/errorHandler'
 import './bot/telegramBot'
-
-dotenv.config()
 
 const app = express()
 
