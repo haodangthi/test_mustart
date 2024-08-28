@@ -1,3 +1,3 @@
 export interface GuessResponse {
-    result: 'less' | 'more' | 'guessed';
+  result: 'less' | 'more' | 'guessed'
 }

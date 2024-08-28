@@ -1,4 +1,4 @@
 export interface StartGameResponse {
-    message: string;
-    secretNumber?: number;
+  message: string
+  secretNumber?: number
 }

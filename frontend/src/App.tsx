@@ -1,11 +1,8 @@
 import './App.css'
-import GuessGame from "./components/GuessGame.tsx";
+import GuessGame from './components/GuessGame.tsx'
 
 function App() {
-
-  return (
-      <GuessGame />
-  )
+  return <GuessGame />
 }
 
 export default App
